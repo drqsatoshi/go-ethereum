@@ -87,9 +87,6 @@ func TestPackRegisterAgent(t *testing.T) {
 	}
 	// Verify the 4-byte method selector matches
 	method := IdentityRegistry.Methods["registerAgent"]
-	if !common.IsHexAddress("0x0000") { // dummy check to use common
-		_ = method
-	}
 	for i := 0; i < 4; i++ {
 		if data[i] != method.ID[i] {
 			t.Fatalf("selector mismatch at byte %d: got %#x, want %#x", i, data[i], method.ID[i])
